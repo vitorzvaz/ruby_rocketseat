@@ -28,6 +28,7 @@ until acertou
     str = gets.chomp
     raise ArgumentError, "[ERRO] Digite um número inteiro." unless str.match?(/\A\d+\z/)
     palpite = str.to_i
+    raise ArgumentError, "[ERRO] Número fora da faixa (#{min_max[0][:val]}–#{min_max[1][:val]})." unless (min_max[0][:val]..min_max[1][:val]).cover?(palpite)
   rescue ArgumentError => e
     puts e.message
     retry
